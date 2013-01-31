@@ -1,0 +1,19 @@
+
+//Calculate forces
+
+//inputs: WallToPointAssocs WallNormals
+
+
+//int J[numwalls]=[0]
+//for j=1;j<number of points,j++		//find the number of times each wall is associated (J in WSN's algorithm)
+//	J(point.wall)++			
+//SumTJ=[0 0,0 0]
+//SumJTP=[0 0,0 0]
+//for w=1, w<number of walls, w++
+//      T(w)=WallNormal*WallNormal_Transpose
+//	SumTJ+=J(w)*T(w)
+//	SumJTP+=J(w)*wallendpoint1(w)
+//	for j=1, j<num of points associated with w, j++
+//		SumTd=T(W)*distance(j)
+//mu=-        (SumTd-SumJTP)/SumTJ
+

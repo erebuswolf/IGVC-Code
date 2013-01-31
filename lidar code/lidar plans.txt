@@ -1,0 +1,71 @@
+
+
+set up the lidar functionality
+
+get newest scan from lidar
+timestamp
+
+have a danger box or radius
+
+fire alert if something is in that radius
+
+transform points to cart
+
+create mask image of transformed points  -> to map of world
+create single matrix of points with timestamp  -> to map of world
+
+
+abstract problems
+
+have an old map of the world with our position
+
+get our new map and find our new position
+
+
+
+need to be able to do above both with a predefined map, and with no predefined map
+
+flag for when we have gps and need to integrate vision or
+for when we have a map instead for determining our location and no need for vision
+
+
+presetmap class
+
+planner class
+owns everything
+looks at the model and plans where to go next
+
+world model class
+gets lidar data, and position stuff
+holds all position stuff
+buffers previous positions?
+if we have a preset map uses it and recalcs position
+else just use gps and update the map with lidar and vision for line finding
+
+vision manager
+manages camers and inputs
+
+vision interpreter
+holds calibrations
+finds lines
+keeps track of transforms stuff
+can be used to find lines and obsticals
+
+
+
+
+different algorithms 
+wall crawling
+
+bug algorithm
+
+
+
+read in position from crio timestamp
+
+take crio position and last position and find where we are in the map for real
+
+wall crawl, send wall crawling waypoints
+
+
+

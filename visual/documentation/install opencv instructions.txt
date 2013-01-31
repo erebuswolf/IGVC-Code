@@ -1,0 +1,41 @@
+https://bugs.launchpad.net/ubuntu/+source/libdc1394-22/+bug/462453
+
+when installing the raw1394 module is not loaded by default follow these instructions to load it
+
+
+Have similar problem on Ubuntu 9.10 with latest updates.
+Found solution:
+
+There is no file /dev/raw1394 (driver is not loaded)!
+
+$ sudo modprobe raw1394
+
+After this check your permissions on device /dev/raw1394
+You must have rw access to this device!
+For me it looks like:
+
+$ ls -la /dev/raw1394
+
+crw-rw---- 1 root root 171, 0 2009-10-30 11:34 /dev/raw1394
+
+On my Ubuntu 9.04 system this looks like:
+
+crw-rw---- 1 root disk 171, 0 2009-10-30 11:34 /dev/raw1394
+
+
+
+
+
+
+Finally, to make changes permanent, i added raw1394 to /etc/modules file:
+
+$ echo "raw1394" | sudo tee -a /etc/modules
+
+and created udev rule to change group of /dev/raw1394 device:
+
+$ echo 'KERNEL=="raw1394", GROUP="video"' | sudo tee -a /etc/udev/rules.d/50-raw1394.rules
+
+
+
+usermod -a -G video jesse
+

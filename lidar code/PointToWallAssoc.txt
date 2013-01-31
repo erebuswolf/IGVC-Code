@@ -1,0 +1,48 @@
+
+/* associate scan points with wall segments
+inputs: walls, points
+
+for each point
+	for each wall 1 to n
+		find distance from wall to point
+	if point within min distance from > 1 wall, toss
+	else assign wall to point
+	
+	
+	
+*/
+
+//float distances[number of points,number of walls]	= 100[]			//array of floats the length of the number of walls - used to temp store distances 
+
+//for j=1,j<number of points in scan,j++
+//{
+//	j_x=point(x)
+//	j_y=point(y)
+//	for w=1,w<number of walls,w++		//run through walls and find the distances
+//      {
+//		wx1=wallEndpoint1_x
+//		wy1=wallEndpoint1_y
+//		wx2=wallEndpoint2_x
+//		wy2=wallEndpoint2_y
+
+//		distance=abs((wx2-wx1)*(wy1-j_y)-(wx1-j_x)*(wy2-wy1))/sqrt((wx2-wx1)^2+(wy2-wy1))
+//		if distance<min_allowable
+//			distances(j,w)=distance					
+//       }
+
+//									Check for poijnts with two walls
+//	wall=0
+//	for w=1,w<numberof walls,w++
+//		if distance(j,w)<100
+			if wall==0
+				wall=w;
+			else
+				wall=-1
+				break
+	if wall==-1							If associated with >1 point, make all distances large
+		for w=1,w<numberofwalls, w++
+			distance(j,w)=100;
+			
+			
+		
+         		
